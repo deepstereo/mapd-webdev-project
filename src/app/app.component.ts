@@ -1,3 +1,7 @@
+import { ProfessorsPage } from './../pages/professors/professors';
+import { TestimonialsPage } from './../pages/testimonials/testimonials';
+import { FeedbackPage } from './../pages/feedback/feedback';
+import { ApplyPage } from './../pages/apply/apply';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -22,7 +26,10 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      { title: 'Program outline', component: ListPage },
+      { title: 'Professors', component: ProfessorsPage },
+      { title: 'Testimonials', component: TestimonialsPage },
+      { title: 'Leave feedback', component: FeedbackPage }
     ];
 
   }

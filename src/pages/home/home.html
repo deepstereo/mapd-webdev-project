@@ -1,18 +1,23 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="dark">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>MAPD</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  
+  <div *ngFor="let item of welcomeList$ | async">
+    <img src="{{ item.image }}">
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+    <div padding>
+      <h1 >{{ item.title }}</h1>
+      <div [innerHTML]="item.description"> </div>
+      <a ion-button item-start primary href="{{ item.websiteLink }}">Visit course website</a>
+    </div>
+  </div>
+  
 </ion-content>

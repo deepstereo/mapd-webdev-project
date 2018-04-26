@@ -1,0 +1,34 @@
+<!--
+  Generated template for the TestimonialsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+      <ion-title>Testimonials</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-card *ngFor="let feedbackItem of feedbackList$ | async" >
+        <ion-item>
+            <h2>{{ feedbackItem.name }}</h2>
+            <p>Graduated in {{ feedbackItem.year }}</p>
+          </ion-item>
+        <ion-card-content>
+          <p>
+              {{ feedbackItem.feedback }}
+          </p>
+        </ion-card-content>
+
+      </ion-card>
+
+</ion-content>

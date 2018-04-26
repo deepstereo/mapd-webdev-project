@@ -1,23 +1,38 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="dark">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>List</ion-title>
+    <ion-title>Program outline</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon [name]="item.icon" item-start></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-end>
-        {{item.note}}
-      </div>
-    </button>
-  </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </div>
+<ion-content padding>
+
+      <ion-card *ngFor="let subjectItem of subjectList$ | async" >
+          <img src="{{ subjectItem.image }}"/>
+
+          <ion-card-content>
+            <ion-card-title>
+                {{ subjectItem.title }}
+              </ion-card-title>
+            <p [innerHTML]="subjectItem.description">
+            </p>
+          </ion-card-content>
+
+          <ion-row padding>
+              <ion-col>
+                  <ion-note>
+                      {{ subjectItem.code }}
+                    </ion-note>
+              </ion-col>
+              <ion-col>
+                  <ion-note>
+                      {{ subjectItem.semesters }}
+                  </ion-note>
+              </ion-col>
+            </ion-row>
+
+        </ion-card>
+
 </ion-content>
